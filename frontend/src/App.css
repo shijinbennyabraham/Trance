@@ -1,0 +1,45 @@
+*{
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.App {
+  color: white;
+  text-align: center;
+  background-color: #23272a;
+  min-height: 100vh;
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+.MuiTextField-root{
+  background-color: #3a3c3d;
+  border:5px solid #3a3c3d;
+  border:'none';
+  border-radius: 15px;
+  
+}
+input, select, textarea{
+  color: white;
+}
+
+textarea:focus, input:focus {
+  color: white;
+}
+input::placeholder{
+  color:white
+}
+
