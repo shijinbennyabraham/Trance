@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="39" viewBox="0 0 130 39">
+  <g id="Group_15" data-name="Group 15" transform="translate(-422 -174)">
+    <text id="T" transform="translate(479 204)" fill="#fff" stroke="#fff" stroke-width="1" font-size="27" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">T</tspan></text>
+    <g id="Group_13" data-name="Group 13" transform="translate(-31 13)">
+      <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(462 180)" fill="#fff" stroke="#fff" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(453 180)" fill="#fff" stroke="#fff" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <line id="Line_1" data-name="Line 1" y2="10" transform="translate(473 177.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_3" data-name="Line 3" y2="10" transform="translate(491 177.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_2" data-name="Line 2" y2="20" transform="translate(482 172.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_4" data-name="Line 4" y2="30" transform="translate(500 167.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+    </g>
+    <g id="Group_14" data-name="Group 14" transform="translate(-43.5 -20)">
+      <g id="Ellipse_23" data-name="Ellipse 23" transform="translate(581.5 213)" fill="#fff" stroke="#fff" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_22" data-name="Ellipse 22" transform="translate(590.5 213)" fill="#fff" stroke="#fff" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <line id="Line_5" data-name="Line 5" y2="10" transform="translate(575.5 210.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_7" data-name="Line 7" y2="10" transform="translate(557.5 210.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_6" data-name="Line 6" y2="20" transform="translate(566.5 205.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <line id="Line_8" data-name="Line 8" y2="30" transform="translate(548.5 200.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+    </g>
+  </g>
+</svg>

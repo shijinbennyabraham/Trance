@@ -1,10 +1,14 @@
 import React from 'react'
-import {Button} from '@material-ui/core'
+import Tlogo from './assets/T logo.png'
 
 function Header() {
     return (
-        <div>
-            <h1 style={{paddingTop:'23px',fontFamily:'Bebas Neue',letterSpacing:'4px',fontWeight:'bolder',fontSize:'42px'}}>TRANCE</h1>
+        <div style={{
+            padding:'20px 0 0 60px'
+            
+        }}>
+            <h1 style={{fontFamily:'Segoe UI'}}>TRANCE</h1>
+            <img src={Tlogo} width="122px"/>
             
         </div>
     )

@@ -1,27 +1,33 @@
+import {React,useState} from 'react'
 import './App.css';
-import { Button,TextField } from '@material-ui/core';
+import LoginForm from './Loginform';
+import SignupForm from './SignupForm'
+import Mainimage from './assets/main-image.svg'
+import Music1 from './assets/music3.svg'
+import Music2 from './assets/music2.svg'
 
 function Login() {
+  const[login,setLogin]=useState(true);
   return (
-    <div className="login">
-      <div>
-      <form noValidate autoComplete="off" className="form">
+    <div>
+    <img src={Music1} style={{width:"180px",position:"absolute",top:'10%',right:'34%'}}/>
+    <img src={Music2} style={{width:'180px',position:'absolute',bottom:'8%',right:'31%'}}/>
+    <div className="login_page">
+      <img src={Mainimage} width="600px" style={{marginRight:'4em'}}/>
+      {
+        login?
         <div>
-        <label style={{paddingRight:'70%'}}>Username</label>
-        <br/>
-        <input type="text" className="form-input"/>
-        </div>
+        <LoginForm/>
+        <p style={{fontSize:'15px',cursor:'pointer'}} onClick={()=>setLogin(false)}>Don't have an account? Sign up now!</p>   
+        </div>:
         <div>
-        <label style={{paddingRight:'70%'}}>Password</label><br/>
-        <input type="password" className="form-input"/>
+        <SignupForm/>
+        <p style={{fontSize:'15px',cursor:'pointer'}} onClick={()=>setLogin(true)}>Already have an account? Login now!</p>     
         </div>
-        <Button variant="contained" color="secondary" type="submit" style={{marginTop:'20px',backgroundColor:'#4c4db0',color:'white'}}>
-        Log In
-        </Button>
-        <br/>
-        <p style={{fontSize:'12px',cursor:'pointer'}}>Don't have an account? Sign up now!</p>      
-      </form>
-      </div>
+      }
+      
+      
+    </div>
     </div>
   );
 }
