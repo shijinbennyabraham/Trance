@@ -10,6 +10,7 @@ def upload_file():
       f = request.files['file']
       print(f)
       f.save(f.filename)
+      main.main(f.filename)
       return f
 		
 if __name__ == '__main__':

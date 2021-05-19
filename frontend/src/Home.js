@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button,TextField } from '@material-ui/core';
 
-function Home() {
+function Home({logout}) {
     return (
             <div className="container">
                 <form method="POST" action="http://127.0.0.1:5000/uploader" enctype="multipart/form-data">
@@ -15,6 +15,9 @@ function Home() {
                 <label for="contained-button-file">
                 <Button variant="contained" color="primary" component="span">
                 Upload
+                </Button>
+                <Button variant="contained" color="primary" component="span" onClick={logout}>
+                Log out
                 </Button>
                 </label>
                 <button type="submit">Submit</button>

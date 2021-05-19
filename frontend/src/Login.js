@@ -6,8 +6,9 @@ import Mainimage from './assets/main-image.svg'
 import Music1 from './assets/music3.svg'
 import Music2 from './assets/music2.svg'
 
-function Login() {
+function Login({loginFunc, setUser}) {
   const[login,setLogin]=useState(true);
+
   return (
     <div>
     <img src={Music1} style={{width:"180px",position:"absolute",top:'10%',right:'34%'}}/>
@@ -17,11 +18,11 @@ function Login() {
       {
         login?
         <div>
-        <LoginForm/>
+        <LoginForm loginFunc={loginFunc}/>
         <p style={{fontSize:'15px',cursor:'pointer'}} onClick={()=>setLogin(false)}>Don't have an account? Sign up now!</p>   
         </div>:
         <div>
-        <SignupForm/>
+        <SignupForm setUser={setUser}/>
         <p style={{fontSize:'15px',cursor:'pointer'}} onClick={()=>setLogin(true)}>Already have an account? Login now!</p>     
         </div>
       }
