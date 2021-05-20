@@ -54,6 +54,7 @@ def pushData(localId, idToken, filename, videoFile):
         'filename':filename
     }
     db.child("users/"+localId).push(data)
+    return data
 
 
 # email=input("email : ")

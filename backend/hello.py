@@ -30,12 +30,12 @@ def upload_file():
    f.save(f.filename)
 
    main.main(f.filename)
-   firebaseFunctions.pushData(localId, idToken, f.filename, 'out.mp4')
+   fileData=firebaseFunctions.pushData(localId, idToken, f.filename, 'out.mp4')
 
    cmd = 'rm out.mp4'
    subprocess.call(cmd,shell=True)
    # print(request)
-   return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
+   return json.dumps({'data':fileData}), 200, {'ContentType':'application/json'} 
 
 @app.route('/login', methods = ['GET', 'POST'])
 def signIn():

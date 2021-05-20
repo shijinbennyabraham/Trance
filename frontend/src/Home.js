@@ -4,7 +4,7 @@ import bg2 from './assets/bg2.svg'
 import {Button} from '@material-ui/core'
 import VideoPreview from './Videopreview'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import db from './firebase_config'
+import {db} from './firebase_config'
 
 
 function Home({logout,user}) {
@@ -24,7 +24,6 @@ function Home({logout,user}) {
           var items=snapshot.val()
           var videos=[]
           for(var item in items){
-            mytotal+=parseInt(counts[id].count)
             videos.push(
               {
                   id: item,
