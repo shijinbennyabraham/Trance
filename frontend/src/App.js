@@ -5,6 +5,7 @@ import Header from './Header'
 import Videopreview from './Videopreview'
 import firebase, { auth, provider } from './firebase_config';
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 function App() {
 
@@ -19,20 +20,36 @@ function App() {
   }, [])
 
   const loginFunc=(email, password)=>{
-    console.log("here")
+    // console.log("here")
 
-    auth.signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      setUser(user)
-      // ...
+    const formData = new FormData();
+
+    formData.append("email", email);
+    formData.append("password", password)
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/login',
+      data: formData,
+      config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log("email or password incorrect")
-    });
+    .then(response => {
+      console.log(response)
+      setUser(response.data)
+    })
+    .catch(errors => console.log(errors))
+
+    // auth.signInWithEmailAndPassword(email, password)
+    // .then((userCredential) => {
+    //   // Signed in
+    //   var user = userCredential.user;
+    //   setUser(user)
+    //   // ...
+    // })
+    // .catch((error) => {
+    //   var errorCode = error.code;
+    //   var errorMessage = error.message;
+    //   console.log("email or password incorrect")
+    // });
 
   }
 

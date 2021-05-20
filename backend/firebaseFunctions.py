@@ -41,23 +41,23 @@ def createUser(email, password):
     except :
         return "Unsuccessfull"
 
-def upload(user,filename, videoFile):
-    videoUrl=storage.child('videos/'+user['localId']+"/"+filename).put(videoFile,user['idToken'])
+def upload(localId, idToken, filename, videoFile):
+    videoUrl=storage.child('videos/'+localId+"/"+filename).put(videoFile, idToken)
     # print(videoUrl)
-    return storage.child('videos/'+user['localId']+"/"+filename).get_url(videoUrl['downloadTokens'])
+    return storage.child('videos/'+localId+"/"+filename).get_url(videoUrl['downloadTokens'])
 
-def pushData(user, filename, videoFile):
+def pushData(localId, idToken, filename, videoFile):
 
-    url=upload(user,filename, videoFile)
+    url=upload(localId, idToken, filename, videoFile)
     data={
         'url':url,
         'filename':filename
     }
-    db.child("users/"+user['localId']).push(data)
+    db.child("users/"+localId).push(data)
 
 
-email=input("email : ")
-password=input("password : ")
-user=signIn(email,password)
+# email=input("email : ")
+# password=input("password : ")
+# user=signIn(email,password)
 
 # pushData(user, filename, 'out.mp4')

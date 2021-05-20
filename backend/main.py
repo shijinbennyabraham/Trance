@@ -240,8 +240,9 @@ def main(filename):
     cmd = 'rm videoFile.avi'
     subprocess.call(cmd,shell=True)
 
+    cmd = 'rm frame.png'
+    subprocess.call(cmd,shell=True)
+
     cmd = 'rm '+filename
     subprocess.call(cmd,shell=True)
     # pygame.quit()
-
-main('audio.wav')

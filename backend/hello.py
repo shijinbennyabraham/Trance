@@ -4,10 +4,10 @@ import main
 import firebaseFunctions
 import subprocess
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
-
-	
+CORS(app, support_credentials=True)
 # @app.route('/uploader', methods = ['GET', 'POST'])
 # def upload_file():
 #    if request.method == 'POST':
@@ -19,19 +19,23 @@ app = Flask(__name__)
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      user=request.form['user']
+   # if request.method == 'POST':
+   f = request.files['file']
+   localId=request.form['localId']
+   idToken=request.form['idToken']
 
-      myuser=json.loads(user)
-      f.save(f.filename)
+   # myuserTxt=json.dumps(user)
+   # myuser=json.loads(user)
+   # print("uid = ",uid)
+   f.save(f.filename)
 
-      main.main(f.filename)
-      firebaseFunctions.pushData(myuser, f.filename, 'out.mp4')
+   main.main(f.filename)
+   firebaseFunctions.pushData(localId, idToken, f.filename, 'out.mp4')
 
-      cmd = 'rm out.mp4'
-      subprocess.call(cmd,shell=True)
-      return "Success"
+   cmd = 'rm out.mp4'
+   subprocess.call(cmd,shell=True)
+   # print(request)
+   return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
 @app.route('/login', methods = ['GET', 'POST'])
 def signIn():
@@ -51,7 +55,7 @@ def signUp():
       email = request.form['email']
       password = request.form['password']
       
-      mssg=firebaseFunctions.signIn(email,password)
+      mssg=firebaseFunctions.createUser(email,password)
 
       return {'meassage':mssg}
 

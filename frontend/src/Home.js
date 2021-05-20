@@ -4,6 +4,7 @@ import bg2 from './assets/bg2.svg'
 import {Button} from '@material-ui/core'
 import VideoPreview from './Videopreview'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import db from './firebase_config'
 
 
 function Home({logout,user}) {
@@ -11,17 +12,43 @@ function Home({logout,user}) {
     const [upfile,setUpfile]=useState('Upload music to see something cool');
     const [uploaded,setUploaded]=useState(false)
     const [song,setSong]=useState(null)
+    const [file, setFile] = useState(null)
     const [modalOpen,setModalOpen]=useState(false);
+    const [videoFiles, setVideoFiles]=useState([])
+
+    useEffect(() => {
+        
+        var itemsRef=db.ref('counts/'+user.localId)
+        
+        itemsRef.on('value',(snapshot)=>{
+          var items=snapshot.val()
+          var videos=[]
+          for(var item in items){
+            mytotal+=parseInt(counts[id].count)
+            videos.push(
+              {
+                  id: item,
+                  url:items[item].url,
+                  filename:items[item].filename
+              }
+            )
+          }
+    
+          setVideoFiles(videos)
+        })
+
+    }, [])
 
     const fileUpload = (e)=>{
         const song=e.target.files[0]
+        setFile(song)
         if(song){
             setUpfile(e.target.files[0].name)
             setUploaded(true)
             const reader=new FileReader();
             reader.onload = ()=>{
             setSong(reader.result);
-        }
+            }
             reader.readAsDataURL(song)
         }
         else{
@@ -30,7 +57,6 @@ function Home({logout,user}) {
         }
         
     }
-
 
 
     return (
@@ -61,7 +87,7 @@ function Home({logout,user}) {
                             </div>
                             <div>
                                 {
-                                uploaded?<VideoPreview upfile={upfile}/>:""}
+                                uploaded?<VideoPreview upfile={upfile} file={file} user={user}/>:""}
                                 {/*<Button variant="contained" component="span" style={{
                                 backgroundColor:'#6C63FF',
                                 color:'white',marginLeft:'20px'
