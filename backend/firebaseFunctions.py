@@ -37,7 +37,8 @@ def signIn(email, password):
 def createUser(email, password):
     try:
         auth.create_user_with_email_and_password(email, password)
-        return "Successfull"
+        user=signIn(email, password)
+        return user
     except :
         return "Unsuccessfull"
 

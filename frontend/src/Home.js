@@ -18,7 +18,9 @@ function Home({logout,user}) {
 
     useEffect(() => {
         
-        var itemsRef=db.ref('counts/'+user.localId)
+        var itemsRef=db.ref('users/'+user.localId)
+        console.log(user)
+        console.log('users/'+user.localId)
         
         itemsRef.on('value',(snapshot)=>{
           var items=snapshot.val()

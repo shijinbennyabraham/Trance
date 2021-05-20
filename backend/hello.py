@@ -55,9 +55,11 @@ def signUp():
       email = request.form['email']
       password = request.form['password']
       
-      mssg=firebaseFunctions.createUser(email,password)
+      user=firebaseFunctions.createUser(email,password)
 
-      return {'meassage':mssg}
+      if(type(user)==str):
+         return {'error':user} #error mssg is returned to user variable
+      return user #if no error return user
 
 		
 if __name__ == '__main__':

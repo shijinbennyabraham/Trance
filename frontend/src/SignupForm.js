@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Button,TextField} from '@material-ui/core'
 import firebase, { auth, provider } from './firebase_config';
+import axios from 'axios' 
 
 function SignupForm({setUser}) {
 
@@ -9,19 +10,36 @@ function SignupForm({setUser}) {
   const [repass, setRepass] = useState('')
   const [passMatch, setPassMatch] = useState(false)
 
+  // const signUp=()=>{
+  //   auth.createUserWithEmailAndPassword(email, password)
+  //   .then((userCredential) => {
+  //     // Signed in 
+  //     var user = userCredential.user;
+  //     setUser(user)
+  //     // ...
+  //   })
+  //   .catch((error) => {
+  //     var errorCode = error.code;
+  //     var errorMessage = error.message;
+  //     // ..
+  //   });
+  // }
   const signUp=()=>{
-    auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in 
-      var user = userCredential.user;
-      setUser(user)
-      // ...
+    const formData = new FormData();
+
+    formData.append("email", email);
+    formData.append("password", password)
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/signUp',
+      data: formData,
+      config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ..
-    });
+    .then(response => {
+      console.log(response)
+      setUser(response.data)
+    })
+    .catch(errors => console.log(errors))
   }
 
   const passwordMatch=(e)=>{
