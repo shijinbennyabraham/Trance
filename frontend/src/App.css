@@ -7,6 +7,7 @@
   color: white;
   background-color: #1C2135;
   min-height: 100vh;
+  font-family:'Segoe UI';
 }
 
 
@@ -51,4 +52,30 @@ input::placeholder{
   height: 75vh;
   justify-content: space-around;
 }
+.upload-div{
+  background-color: rgb(53, 58, 72,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  box-shadow: 0 0 0 0.5px #6C63FF;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+.upload-div:hover{
+  box-shadow: 0 0 0 2px #6C63FF;
+}
 
+
+audio{
+  opacity: 0.9;
+  filter:drop-shadow(5px 5px 8px gray);
+  transform:scale(0.9);
+  outline: none;
+}
+
+.myButton{
+  background-color: #6C63FF;
+  color:white;
+}

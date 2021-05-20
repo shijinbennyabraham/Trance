@@ -43,17 +43,17 @@ function SignupForm({setUser}) {
       <div>
       <label style={{paddingRight:'70%'}} >Email</label>
       <br/>
-      <input type="text" value={email} onChange={e=>{setEmail(e.target.value)}} className="form-input"/>
+      <input type="text" value={email} onChange={e=>{setEmail(e.target.value)}} className="form-input" required/>
       </div>
       
       <div>
       <label style={{paddingRight:'70%'}} >Password</label><br/>
-      <input type="password" value={password} onChange={e=>{setPass(e.target.value)}} className="form-input"/>
+      <input type="password" value={password} onChange={e=>{setPass(e.target.value)}} className="form-input" required/>
       </div>
 
       <div>
-      <label style={{paddingRight:'50%'}} >Retype Password</label><br/>
-      <input type="password" value={repass} className="form-input" onChange={passwordMatch}/>
+      <label style={{paddingRight:'20%'}}>Confirm Password</label><br/>
+      <input type="password" value={repass} className="form-input" onChange={passwordMatch} required/>
       </div>
 
       <Button 

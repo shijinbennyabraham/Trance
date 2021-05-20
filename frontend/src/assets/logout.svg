@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="75" height="75" viewBox="0 0 75 75">
+  <defs>
+    <filter id="Ellipse_25" x="-9" y="-6" width="93" height="93" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ff2020"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_25)">
+        <circle id="Ellipse_25-2" data-name="Ellipse 25" cx="37.5" cy="37.5" r="37.5" transform="translate(1674 71)" fill="#fff" stroke="#707070" stroke-width="1"/>
+      </g>
+    </clipPath>
+    <filter id="Path_222" x="1.927" y="9.927" width="48.146" height="63.147" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Mask_Group_9" data-name="Mask Group 9" transform="translate(-1674 -71)" clip-path="url(#clip-path)">
+    <g id="logout_1_" data-name="logout (1)" transform="translate(1674 71)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_222)">
+        <path id="Path_222-2" data-name="Path 222" d="M28.125,24.376A1.874,1.874,0,0,0,26.25,26.25v7.5a1.877,1.877,0,0,1-1.875,1.875H18.75V7.5A3.779,3.779,0,0,0,16.2,3.936l-.555-.186h8.734A1.877,1.877,0,0,1,26.25,5.626v5.625a1.875,1.875,0,1,0,3.75,0V5.626A5.632,5.632,0,0,0,24.375,0H4.219a1.473,1.473,0,0,0-.2.041C3.928.034,3.842,0,3.75,0A3.754,3.754,0,0,0,0,3.75V37.5a3.779,3.779,0,0,0,2.554,3.564l11.284,3.761A3.882,3.882,0,0,0,15,45a3.754,3.754,0,0,0,3.75-3.75V39.376h5.625A5.632,5.632,0,0,0,30,33.751v-7.5a1.874,1.874,0,0,0-1.875-1.875Zm0,0" transform="translate(11 16)" fill="#fff" stroke="#000" stroke-width="0.146"/>
+      </g>
+      <path id="Path_223" data-name="Path 223" d="M64.958,25.382l-9.091-9.091A2.272,2.272,0,0,0,51.988,17.9v6.818H42.9a2.273,2.273,0,1,0,0,4.545h9.091v6.818a2.272,2.272,0,0,0,3.879,1.607L64.958,28.6a2.27,2.27,0,0,0,0-3.213Zm0,0" transform="translate(-8.625 8)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -2,6 +2,7 @@ import './App.css';
 import Login from './Login'
 import Home from './Home'
 import Header from './Header'
+import Videopreview from './Videopreview'
 import firebase, { auth, provider } from './firebase_config';
 import { useEffect, useState } from 'react';
 
@@ -41,11 +42,10 @@ function App() {
         setUser(null)
       });
   }
-
   return (
     <div className="App">
-      <Header/>
-      {user?<Home logout={logout}/>:<Login loginFunc={loginFunc} setUser={setUser}/>}
+      <Header logout={logout} user={user}/>
+      {user?<Home logout={logout} user={user}/>:<Login loginFunc={loginFunc} setUser={setUser}/>}
     </div>
   );
 }
