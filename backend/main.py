@@ -1,8 +1,10 @@
+from numpy.lib.stride_tricks import DummyArray
 from AudioAnalyser import *
 import random
 import colorsys
 import cv2
 import subprocess
+import librosa
 
 def rnd_color():
     h, s, l = random.random(), 0.5 + random.random() / 2.0, 0.4 + random.random() / 5.0
@@ -14,6 +16,10 @@ def main(filename):
 
     analyzer = AudioAnalyzer()
     analyzer.load(filename)
+
+    audioData, sfreq=librosa.load(filename)
+    duration=len(audioData)/sfreq
+    print(duration)
 
     pygame.init()
 
@@ -134,6 +140,7 @@ def main(filename):
 
         t = pygame.time.get_ticks()
         deltaTime = (t - getTicksLastFrame) / 1000.0
+
         getTicksLastFrame = t
 
         timeCount += deltaTime
@@ -142,7 +149,9 @@ def main(filename):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("helloooo")
                 running = False
+
 
         for b1 in bars:
             for b in b1:
@@ -205,7 +214,7 @@ def main(filename):
         pygame.draw.polygon(screen, (r,g,b), poly)
         pygame.draw.circle(screen, circle_color, (circleX, circleY), int(radius))
 
-        # pygame.display.flip()
+        pygame.display.flip()
         pygame.image.save(screen, "frame.png")
         clock.tick()
         print(int(clock.get_fps()))
@@ -213,15 +222,26 @@ def main(filename):
         fnum+=1
         frames.append(cv2.imread("frame.png"))
 
+        if(timeCount>=int(duration)):
+            running=False
+            pygame.quit()
 
-    fps=fpsSum/fnum
+
+    fps=int(fnum/duration)
     videoResult = cv2.VideoWriter('videoFile.avi', 0, fps, (screen_w,screen_h))
     
     for frame in frames:
         videoResult.write(frame)
     videoResult.release()
 
-    cmd = 'ffmpeg -i '+filename+' -i videoFile.avi out.mp4'
+    cmd = 'ffmpeg -y -i '+filename+' -i videoFile.avi -shortest out.mp4'
     subprocess.call(cmd,shell=True)
-    print("helooooooooo")
-    pygame.quit()
+
+    cmd = 'rm videoFile.avi'
+    subprocess.call(cmd,shell=True)
+
+    cmd = 'rm '+filename
+    subprocess.call(cmd,shell=True)
+    # pygame.quit()
+
+main('audio.wav')

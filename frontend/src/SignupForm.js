@@ -43,12 +43,12 @@ function SignupForm({setUser}) {
       <div>
       <label style={{paddingRight:'70%'}} >Email</label>
       <br/>
-      <input type="text" value={email} onChange={e=>{setEmail(e.target.value)}} className="form-input" required/>
+      <input type="text" name="email" value={email} onChange={e=>{setEmail(e.target.value)}} className="form-input" required/>
       </div>
       
       <div>
       <label style={{paddingRight:'70%'}} >Password</label><br/>
-      <input type="password" value={password} onChange={e=>{setPass(e.target.value)}} className="form-input" required/>
+      <input type="password" name="password" value={password} onChange={e=>{setPass(e.target.value)}} className="form-input" required/>
       </div>
 
       <div>

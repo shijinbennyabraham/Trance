@@ -7,15 +7,17 @@ function Loginform({loginFunc}) {
       <div>
         <form noValidate autoComplete="off" className="form">
         <p style={{color:'white',fontWeight:'bolder',fontSize:'18px',marginBottom:'20px'}}>Welcome Back!</p>
+        
         <div>
-        <label style={{paddingRight:'70%'}}>Email</label>
-        <br/>
-        <input type="text" className="form-input" onChange={e=>{setEmail(e.target.value)}} required/>
+        <label style={{paddingRight:'70%'}}>Email</label><br/>
+        <input type="text" name="email" className="form-input" onChange={e=>{setEmail(e.target.value)}} required/>
         </div>
+
         <div>
         <label style={{paddingRight:'70%'}}>Password</label><br/>
-        <input type="password" className="form-input" onChange={e=>{setPass(e.target.value)}} required/>
+        <input type="password" name="password" className="form-input" onChange={e=>{setPass(e.target.value)}} required/>
         </div>
+
         <Button 
           variant="contained" 
           color="secondary" 
