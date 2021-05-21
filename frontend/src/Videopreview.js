@@ -69,7 +69,7 @@ export default function Videopreview({upfile, user, file}) {
     
     axios({
       method: 'post',
-      url: 'http://localhost:5000/uploader',
+      url: 'http://ec2-18-220-72-7.us-east-2.compute.amazonaws.com/uploader',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })

@@ -25,11 +25,13 @@ def main(filename):
 
     infoObject = pygame.display.Info()
 
-    screen_w = int(infoObject.current_w/2.2)
-    screen_h = int(infoObject.current_w/2.2)
+    # screen_w = int(infoObject.current_w/2.2)
+    # screen_h = int(infoObject.current_w/2.2)
 
     # Set up the drawing window
-    screen = pygame.display.set_mode([screen_w, screen_h])
+    screen_w=500
+    screen_h=500
+    screen = pygame.Surface((screen_w, screen_h))
 
 
     t = pygame.time.get_ticks()
@@ -125,7 +127,6 @@ def main(filename):
 
     pygame.mixer.music.load(filename)
     pygame.mixer.music.play(0)
-
     clock = pygame.time.Clock()
 
     running = True
@@ -214,7 +215,7 @@ def main(filename):
         pygame.draw.polygon(screen, (r,g,b), poly)
         pygame.draw.circle(screen, circle_color, (circleX, circleY), int(radius))
 
-        pygame.display.flip()
+        # pygame.display.flip()
         pygame.image.save(screen, "frame.png")
         clock.tick()
         print(int(clock.get_fps()))
@@ -246,3 +247,4 @@ def main(filename):
     cmd = 'rm '+filename
     subprocess.call(cmd,shell=True)
     # pygame.quit()
+main('audio.wav')

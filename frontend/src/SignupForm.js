@@ -31,7 +31,7 @@ function SignupForm({setUser}) {
     formData.append("password", password)
     axios({
       method: 'post',
-      url: 'http://localhost:5000/signUp',
+      url: 'http://ec2-18-220-72-7.us-east-2.compute.amazonaws.com/signUp',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })

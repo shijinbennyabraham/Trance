@@ -28,7 +28,7 @@ function App() {
     formData.append("password", password)
     axios({
       method: 'post',
-      url: 'http://localhost:5000/login',
+      url: 'http://ec2-18-220-72-7.us-east-2.compute.amazonaws.com/login',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
