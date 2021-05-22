@@ -5,6 +5,7 @@ import {Button} from '@material-ui/core'
 import VideoPreview from './Videopreview'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {db} from './firebase_config'
+import SavedVideo from './SavedVideo'
 
 
 function Home({logout,user}) {
@@ -15,6 +16,7 @@ function Home({logout,user}) {
     const [file, setFile] = useState(null)
     const [modalOpen,setModalOpen]=useState(false);
     const [videoFiles, setVideoFiles]=useState([])
+
 
     useEffect(() => {
         
@@ -58,8 +60,10 @@ function Home({logout,user}) {
         }
         
     }
-
-
+    var items=['Rasputin','Big Bang','Breaking Bad'];
+    console.log(items.length)
+    console.log(user.email)
+    
     return (
             <div style={{position:'relative',minHeight:'85vh',overflow:'hidden',zIndex:2}}>
                 <img src={bg1} alt="" style={{position:'absolute',right:'2%',bottom:'40%',zIndex:-1}}/>
@@ -70,7 +74,7 @@ function Home({logout,user}) {
                     <h4 style={{marginTop:'3em',marginBottom:'1em'}}>Add file</h4>
                     <div className="upload-div">
                         <p>{upfile}</p>
-                        {uploaded?<audio src={song} controls/>:""}
+                        {uploaded?<audio id="uploaded-audio" src={song} controls/>:""}
                         <div style={{display:'flex',transition:'0.2s ease'}}>
                             <div>
                                 <input
@@ -101,9 +105,19 @@ function Home({logout,user}) {
                 
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'2em',marginBottom:'1em'}}>Saved videos</h4>
+                    {items.length===0?
                     <div className="upload-div" style={{minHeight:'20vh'}}>
                     <p style={{margin:'auto'}}>No saved videos yet</p>
-                    </div>     
+                    </div>:  
+                    <div>
+                        {items.map(item=>{
+                            return(
+                                <SavedVideo item={item}></SavedVideo>
+                            )
+                        })}
+                    </div>
+                    }
+                      
                 </div>
                
             </div>

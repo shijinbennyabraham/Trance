@@ -80,7 +80,7 @@ function SignupForm({setUser}) {
         type="submit" 
         style={{
           marginTop:'20px',
-          backgroundColor:'#86359E',
+          backgroundColor:'#6C63FF',
           color:'white'
         }}
         onClick={(e)=>{

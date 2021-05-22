@@ -6,13 +6,13 @@ function Header({logout,user}) {
     return (
         <div style={{display:'flex',justifyContent:'space-between'}}>
         <div style={{
-            padding:'20px 0 0 60px'
+            padding:'1em 0 0 4em'
             
         }}>
             <h1 style={{fontFamily:'Segoe UI'}}>TRANCE</h1>
             <img src={Tlogo} width="122px"/>
         </div>
-        {user?<img src={LogoutIcon} alt="" style={{position:'absolute',top:'2%',right:'5%',cursor:"pointer"}} onClick={logout}/>:''}
+        {user?<img src={LogoutIcon} alt="" style={{position:'absolute',top:'1em',right:'4em',cursor:"pointer"}} onClick={logout}/>:''}
         </div>
     )
 }
