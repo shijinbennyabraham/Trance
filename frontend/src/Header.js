@@ -12,7 +12,7 @@ function Header({logout,user}) {
             <h1 style={{fontFamily:'Segoe UI'}}>TRANCE</h1>
             <img src={Tlogo} width="122px"/>
         </div>
-        {user?<img src={LogoutIcon} alt="" style={{position:'absolute',top:'1em',right:'4em',cursor:"pointer"}} onClick={logout}/>:''}
+        {user?.email?<img src={LogoutIcon} alt="" style={{position:'absolute',top:'1em',right:'4em',cursor:"pointer"}} onClick={logout}/>:''}
         </div>
     )
 }
