@@ -17,6 +17,22 @@ function Home({logout,user}) {
     const [modalOpen,setModalOpen]=useState(false);
     const [videoFiles, setVideoFiles]=useState([])
 
+    const[items,setItems]=useState(
+        [
+            {
+                id:1,
+                name:"Rasputin"
+            },
+            {
+                id:2,
+                name:"Big bang"
+            },
+            {
+                id:3,
+                name:"Inspection"
+            }
+    ]
+    )
 
     useEffect(() => {
         
@@ -60,9 +76,7 @@ function Home({logout,user}) {
         }
         
     }
-    var items=['Rasputin','Big Bang','Breaking Bad'];
-    console.log(items.length)
-    console.log(user.email)
+   
     
     return (
             <div style={{position:'relative',minHeight:'85vh',overflow:'hidden',zIndex:2}}>
@@ -112,7 +126,7 @@ function Home({logout,user}) {
                     <div>
                         {items.map(item=>{
                             return(
-                                <SavedVideo item={item}></SavedVideo>
+                                <SavedVideo key={item.id} item={item} items={items} setItems={setItems}></SavedVideo>
                             )
                         })}
                     </div>
