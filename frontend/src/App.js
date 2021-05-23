@@ -59,6 +59,7 @@ function App() {
         setUser(null)
       });
   }
+  
   return (
     <div className="App">
       <Header logout={logout} user={user}/>
