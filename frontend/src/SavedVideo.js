@@ -14,7 +14,7 @@ function SavedVideo({item,items,setItems}) {
     return (
         <div className="upload-div">
                 <p>{item.name}</p>
-                <div style={{display:'flex',transition:'0.2s ease'}}>
+                <div className="saved-buttons" style={{display:'flex',transition:'0.2s ease'}}>
                     <div>
                         <Button color="primary" variant="contained" style={{textTransform:'capitalize',
                         backgroundColor:'#6C63FF',color:'white'}}><CloudDownloadIcon style={{marginRight:"5px"}}/>Download</Button>

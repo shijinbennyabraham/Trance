@@ -5,10 +5,7 @@ import LogoutIcon from './assets/logout.png'
 function Header({logout,user}) {
     return (
         <div style={{display:'flex',justifyContent:'space-between'}}>
-        <div style={{
-            padding:'1em 0 0 4em'
-            
-        }}>
+        <div className="header-logo">
             <h1 style={{fontFamily:'Segoe UI'}}>TRANCE</h1>
             <img src={Tlogo} width="122px"/>
         </div>

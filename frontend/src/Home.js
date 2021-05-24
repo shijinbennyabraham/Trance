@@ -36,9 +36,9 @@ function Home({logout,user}) {
 
     useEffect(() => {
         
-        var itemsRef=db.ref('users/'+user.localId)
+        var itemsRef=db.ref('users/'+user?.localId)
         console.log(user)
-        console.log('users/'+user.localId)
+        console.log('users/'+user?.localId)
         
         itemsRef.on('value',(snapshot)=>{
           var items=snapshot.val()
@@ -76,14 +76,15 @@ function Home({logout,user}) {
         }
         
     }
+    console.log(videoFiles);
    
     
     return (
             <div style={{position:'relative',minHeight:'85vh',overflow:'hidden',zIndex:2}}>
                 <img src={bg1} alt="" style={{position:'absolute',right:'2%',bottom:'40%',zIndex:-1}}/>
                 <img src={bg2} alt="" style={{position:'absolute',left:'-12%',bottom:'-20%',zIndex:-1}}/>
-            <div style={{margin:'2% auto 0 auto',width:'70%',paddingBottom:'1em'}}> 
-                <h3>Welcome {user.email}</h3>
+            <div className="home-main"> 
+                <h3 className="welcome">Welcome {user?.email}</h3>
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'3em',marginBottom:'1em'}}>Add file</h4>
                     <div className="upload-div">

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Box from '@material-ui/core/Box';
 
 function LinearProgressWithLabel(props) {
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
 
 export default function ProgressBar({progress,setProgress}) {
   const classes = useStyles();
+  const matches = useMediaQuery('(max-width:650px)');
   
 
   React.useEffect(() => {
@@ -49,7 +51,8 @@ export default function ProgressBar({progress,setProgress}) {
 
   return (
     <div className={classes.root}>
-      <LinearProgressWithLabel value={progress} setProgress={setProgress} style={{width:'500px'}}/>
+      <LinearProgressWithLabel value={progress} setProgress={setProgress} style={{width:matches?'200px':'500px'}}/>
+      
     </div>
   );
 }

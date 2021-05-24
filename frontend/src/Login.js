@@ -10,11 +10,11 @@ function Login({loginFunc, setUser}) {
   const[login,setLogin]=useState(true);
 
   return (
-    <div>
-    <img src={Music1} style={{width:"180px",position:"absolute",top:'10%',right:'34%'}}/>
-    <img src={Music2} style={{width:'180px',position:'absolute',bottom:'8%',right:'31%'}}/>
+    <div className="login-main" style={{zIndex:2,position:'relative'}}>
+    <img src={Music1} className="music1" style={{zIndex:-1}}/>
+    <img src={Music2} className="music2" style={{zIndex:-1}}/>
     <div className="login_page">
-      <img src={Mainimage} width="600px" style={{marginRight:'4em'}}/>
+      <img src={Mainimage}  className="main-image"/>
       {
         login?
         <div>
@@ -29,6 +29,8 @@ function Login({loginFunc, setUser}) {
       
       
     </div>
+    
+    
     </div>
   );
 }
