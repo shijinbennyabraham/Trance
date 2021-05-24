@@ -1,11 +1,13 @@
 ![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
 # Project Name
-Long Description about project. This project do that. This project is awesome...
+Trance
+Music Visualizer web app
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+1. N Athul Kumar [https://github.com/athulatk]
+2. Shuhaib Ibrahim [https://github.com/shuhaibibrahim]
+3. Shijin Benny Abraham [https://github.com/shijinbennyabraham]
 ## Team Id
-Team id here
+BFH/rect9uCvbefeS5Bqa/2021
 ## Link to product walkthrough
 [link to video]
 ## How it Works ?
