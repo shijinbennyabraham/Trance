@@ -3,6 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/Segoe\ UI.ttf');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/Segoe\ UI\ Bold.ttf');
+  font-weight: bold;
+}
 .App {
   color: white;
   background-color: #1C2135;
@@ -14,6 +24,7 @@
 .form{
   display: flex;
   flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-items: center;
   justify-content: center;
   color:#d3d3f7;

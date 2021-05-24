@@ -19,11 +19,11 @@ function Login({loginFunc, setUser}) {
         login?
         <div>
         <LoginForm loginFunc={loginFunc}/>
-        <p style={{fontSize:'15px',marginTop:'1em',cursor:'pointer'}} onClick={()=>setLogin(false)}>Don't have an account? Sign up now!</p>   
+        <p style={{fontSize:'15px',marginTop:'1em',cursor:'pointer'}} onClick={()=>setLogin(false)}>Don't have an account? <span style={{color:'#9b96f0',fontStyle:'italic',fontWeight:'bolder'}}>Sign up</span> now!</p>   
         </div>:
         <div>
         <SignupForm setUser={setUser}/>
-        <p style={{fontSize:'15px',marginTop:'1em',cursor:'pointer'}} onClick={()=>setLogin(true)}>Already have an account? Login now!</p>     
+        <p style={{fontSize:'15px',marginTop:'1em',cursor:'pointer'}} onClick={()=>setLogin(true)}>Already have an account? <span style={{color:'#9b96f0',fontStyle:'italic',fontWeight:'bolder'}}>Login</span> now!</p>     
         </div>
       }
       
