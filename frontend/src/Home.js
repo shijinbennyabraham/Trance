@@ -5,6 +5,7 @@ import {Button} from '@material-ui/core'
 import VideoPreview from './Videopreview'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {db} from './firebase_config'
+import SavedVideo from './SavedVideo'
 
 
 function Home({logout,user}) {
@@ -15,6 +16,23 @@ function Home({logout,user}) {
     const [file, setFile] = useState(null)
     const [modalOpen,setModalOpen]=useState(false);
     const [videoFiles, setVideoFiles]=useState([])
+
+    const[items,setItems]=useState(
+        [
+            {
+                id:1,
+                name:"Rasputin"
+            },
+            {
+                id:2,
+                name:"Big bang"
+            },
+            {
+                id:3,
+                name:"Inspection"
+            }
+    ]
+    )
 
     useEffect(() => {
         
@@ -58,19 +76,20 @@ function Home({logout,user}) {
         }
         
     }
-
-
+    console.log(videoFiles);
+   
+    
     return (
             <div style={{position:'relative',minHeight:'85vh',overflow:'hidden',zIndex:2}}>
                 <img src={bg1} alt="" style={{position:'absolute',right:'2%',bottom:'40%',zIndex:-1}}/>
                 <img src={bg2} alt="" style={{position:'absolute',left:'-12%',bottom:'-20%',zIndex:-1}}/>
-            <div style={{margin:'2% auto 0 auto',width:'70%',paddingBottom:'1em'}}> 
-                <h3>Welcome {user.email}</h3>
+            <div className="home-main"> 
+                <h3 className="welcome">Welcome {user.email}</h3>
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'3em',marginBottom:'1em'}}>Add file</h4>
                     <div className="upload-div">
                         <p>{upfile}</p>
-                        {uploaded?<audio src={song} controls/>:""}
+                        {uploaded?<audio id="uploaded-audio" src={song} controls/>:""}
                         <div style={{display:'flex',transition:'0.2s ease'}}>
                             <div>
                                 <input
@@ -101,9 +120,19 @@ function Home({logout,user}) {
                 
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'2em',marginBottom:'1em'}}>Saved videos</h4>
+                    {items.length===0?
                     <div className="upload-div" style={{minHeight:'20vh'}}>
                     <p style={{margin:'auto'}}>No saved videos yet</p>
-                    </div>     
+                    </div>:  
+                    <div>
+                        {items.map(item=>{
+                            return(
+                                <SavedVideo key={item.id} item={item} items={items} setItems={setItems}></SavedVideo>
+                            )
+                        })}
+                    </div>
+                    }
+                      
                 </div>
                
             </div>

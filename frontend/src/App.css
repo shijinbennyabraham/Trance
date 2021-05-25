@@ -3,6 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/Segoe\ UI.ttf');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/Segoe\ UI\ Bold.ttf');
+  font-weight: bold;
+}
 .App {
   color: white;
   background-color: #1C2135;
@@ -14,6 +24,7 @@
 .form{
   display: flex;
   flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-items: center;
   justify-content: center;
   color:#d3d3f7;
@@ -27,7 +38,7 @@
 }
 .form-input{
   background-color: #3a3c3d;
-  border:0.1px solid #86359E;
+  border:0.1px solid #6C63FF;
   border-radius: 10px;
   padding:1.3em 1em;
   width:250px;
@@ -79,3 +90,94 @@ audio{
   background-color: #6C63FF;
   color:white;
 }
+
+.main-image{
+  width:600px;
+  margin-right:'4em';
+}
+.header-logo{
+  padding:1em 0 0 4em;
+}
+
+.music2{
+  width:180px;
+  position:absolute;
+  bottom:8%;
+  right:31%;
+}
+
+.music1{
+  width:180px;
+  position:absolute;
+  top:10%;
+  right:34%;
+}
+
+.home-main{
+  margin:2% auto 0 auto;
+  width:70%;
+  padding-bottom:1em;
+}
+.logout{
+  position:absolute;
+  top:1em;
+  right:4em;
+  cursor:pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .upload-div{
+    flex-direction: column;
+  }
+  .upload-div>p,.upload-div>audio,.upload-div>div{
+    margin-bottom:1.2em; 
+  }
+}
+
+
+
+@media only screen and (max-width: 950px) {
+    .main-image{
+      width:450px;
+    }
+    .logout{
+      right:1em;
+      margin: 0;
+    }
+}
+@media only screen and (max-width: 760px) {
+  .main-image{
+    display: none;
+  }
+  .header-logo{
+    margin: auto;
+    padding:0;
+    margin-top:1em;
+  }
+  .music1{
+    top:3em;
+    left:1em;
+  }
+  .music2{
+    bottom:0;
+    right:1em;
+  }
+  audio{
+    width:250px;
+  }
+  .home-main{
+    width:100%;
+    padding:0.5em;
+  }
+  .welcome{
+    margin-top: 0.5em;
+    margin-left:0.5em;
+  }
+  .logout{
+    transform: scale(0.9);
+  }
+  
+  
+}
+
+

@@ -12,6 +12,9 @@ import Marvel from './assets/Marvel.mp4'
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import BlurOnIcon from '@material-ui/icons/BlurOn';
 import axios from 'axios'
+import ProgressBar from './ProgressBar'
+
+
 
 const styles = (theme) => ({
   root: {
@@ -54,10 +57,14 @@ const DialogContent = withStyles((theme) => ({
 
 export default function Videopreview({upfile, user, file}) {
   const [open, setOpen] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
 
   useEffect(() => {
     console.log(user)
   }, [])
+  useEffect(()=>{
+    setProgress(0)
+  },[upfile])
 
   const handleClickOpen = (e) => {
 
@@ -90,7 +97,7 @@ export default function Videopreview({upfile, user, file}) {
       <input type="hidden" name="user" value={user} />
       <input type="file" style={{display:'none'}} name="file" value={file} /> */}
 
-      <Button type="submit" variant="contained" variant="primary" style={{marginLeft:'20px',backgroundColor:'#6C63FF',
+      <Button type="submit" variant="contained" color="primary" style={{marginLeft:'20px',backgroundColor:'#6C63FF',
           color:'white',textTransform:'capitalize'}} onClick={handleClickOpen}>
         <BlurOnIcon/> Visualize
       </Button>
@@ -102,11 +109,24 @@ export default function Videopreview({upfile, user, file}) {
           {upfile} - Visualization
         </DialogTitle>
         <DialogContent style={{backgroundColor:'#1C2135',color:'white'}}>
-          <video src={Marvel} controls autoPlay style={{width:'100%',height:'100%'}}/>
-          <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-          <Button variant="contained" style={{backgroundColor:'#6C63FF',
-          color:'white',marginTop:'20px',textTransform:'capitalize'}}><CloudDownloadIcon style={{marginRight:'5px'}}/> Download</Button>
-          </div>
+          {
+            progress===100?
+            <div>
+            <video src={Marvel} controls autoPlay style={{width:'100%',height:'100%'}}/>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+            <a href={Marvel} download={`${upfile}-Visualization.mp4`}>
+            <Button variant="contained" style={{backgroundColor:'#6C63FF',
+            color:'white',marginTop:'20px',textTransform:'capitalize'}}><CloudDownloadIcon style={{marginRight:'5px'}}/>Download</Button></a>
+            </div>
+            </div>:
+            <div>
+              Visualizing...
+              <ProgressBar progress={progress} setProgress={setProgress}/>
+            </div>
+            
+          }
+          
+          
           
         </DialogContent>
         

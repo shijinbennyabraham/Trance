@@ -59,10 +59,11 @@ function App() {
         setUser(null)
       });
   }
+  
   return (
     <div className="App">
       <Header logout={logout} user={user}/>
-      {user?<Home logout={logout} user={user}/>:<Login loginFunc={loginFunc} setUser={setUser}/>}
+      {user?.email?<Home logout={logout} user={user}/>:<Login loginFunc={loginFunc} setUser={setUser}/>}
     </div>
   );
 }
