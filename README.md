@@ -2,6 +2,8 @@
 # Project Name
 Trance
 Music Visualizer web app
+
+The project TRANCE is a music visualizer web app to generate animated visualizations according to the beats of an uploaded music or audio file.
 ## Team members
 1. N Athul Kumar [https://github.com/athulatk]
 2. Shuhaib Ibrahim [https://github.com/shuhaibibrahim]
