@@ -1,0 +1,3 @@
+#!/home/shuhaib/Trance/backend/venv/bin/python
+from numba.pycc import main
+main()

@@ -28,7 +28,7 @@ function App() {
     formData.append("password", password)
     axios({
       method: 'post',
-      url: 'http://ec2-18-220-72-7.us-east-2.compute.amazonaws.com/login',
+      url: 'http://git.heroku.com/trance-server.git/login',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
