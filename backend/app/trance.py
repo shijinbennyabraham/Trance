@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 #from werkzeug import secure_filename
-import main2
+import musicViz
 import firebaseFunctions
 import subprocess
 import json
@@ -49,7 +49,7 @@ def upload_file():
        cmd="/usr/bin/ffmpeg -i "+f.filename+" -acodec pcm_u8 -ar 22050 "+newFname
        os.system(cmd)
 
-   main2.main(newFname)
+   mainViz.main(newFname)
    fileData=firebaseFunctions.pushData(localId, idToken, newFname, 'out.mp4')
 
    cmd = '/usr/bin/rm out.mp4'
