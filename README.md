@@ -103,19 +103,29 @@ Now we completed the configuration setup for the Trance Music Visualizer web app
 Step-1 Open your terminal and then type
 $ git clone {the url to the GitHub repo}
 #This clones the repo
-Step-2 $cd frontend into the new folder and type
-Step-3 $ npm install
 
+Step-2 $cd frontend into the new folder and type
+
+Step-3 $ npm install
 #This installs the required dependencies
 
-#To run the React project.
 Step-4 $ npm start
+#To run the React project
+
 
 
 To run the flask application 
 
-Step-1 move to backend folder.
+
+Step-1 Move to backend folder.
+
 Step-2 Run the command pip install -r requirements.txt
-       (Please install all the necessary dependencies)
+       (This will install most of the necessary pakages 
+       The missing packages can be installed using the 
+       command: pip install <package name>)
+       
+Step-3 Run the python file trance.py
+ 
+ Step-3 
 
 You are done!
