@@ -1,7 +1,6 @@
 ![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
-# Project Name
-Trance
-Music Visualizer web app
+## Trance
+
 
 The project TRANCE is a music visualizer web app to generate animated visualizations according to the beats of an uploaded music or audio file.
 ## Team members
@@ -11,7 +10,7 @@ The project TRANCE is a music visualizer web app to generate animated visualizat
 ## Team Id
 BFH/rect9uCvbefeS5Bqa/2021
 ## Link to product walkthrough
-[link to video]
+[https://www.loom.com/share/18f4d5869ede41e28c1f3046923a9fd5]
 ## How it Works ?
 Step-1 Click the link to move into the Trance web application.[https://trance-music-visualizer.netlify.app/]
 
@@ -126,6 +125,5 @@ Step-2 Run the command pip install -r requirements.txt
        
 Step-3 Run the python file trance.py
  
- Step-3 
 
 You are done!
