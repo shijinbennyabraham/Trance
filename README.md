@@ -99,7 +99,7 @@ This is a documentation link for installing nodejs [https://www.tutorialspoint.c
 After installing nodejs then we can install npm by using the command "npm install"
 
 Now we completed the configuration setup for the Trance Music Visualizer web application.
-## How to Run
+### How to Run
 Step-1 Open your terminal and then type
 $ git clone {the url to the GitHub repo}
 #This clones the repo
@@ -110,5 +110,12 @@ Step-3 $ npm install
 
 #To run the React project.
 Step-4 $ npm start
+
+
+To run the flask application 
+
+Step-1 move to backend folder.
+Step-2 Run the command pip install -r requirements.txt
+       (Please install all the necessary dependencies)
 
 You are done!
