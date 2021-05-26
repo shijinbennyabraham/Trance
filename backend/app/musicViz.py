@@ -1,4 +1,3 @@
-
 import random
 import cv2
 import subprocess
@@ -6,6 +5,7 @@ import librosa
 import numpy as np
 import time
 import math
+import os
 
 lengths=[]
 r1=80
@@ -25,7 +25,7 @@ def draw(amp):
 
         r2=abs(r2)
         if(r2<r1):
-            r2=r1+5+random.randint(0,20)
+            r2=r1+5+random.randint(3,20)
 
         x1=int(r1*math.cos(theta))+250
         y1=int(r1*math.sin(theta))+250
@@ -86,16 +86,21 @@ def main(filename):
         videoResult.write(frame)
     videoResult.release()
 
-    cmd = 'ffmpeg -y -i '+filename+' -i videoFile.avi -shortest out.mp4'
-    subprocess.call(cmd,shell=True)
+    cmd = '/usr/bin/ffmpeg -y -i '+filename+' -i videoFile.avi -shortest out.mp4'
+#    subprocess.call(cmd,shell=True)
+    os.system(cmd)
 
-    cmd = 'rm videoFile.avi'
-    subprocess.call(cmd,shell=True)
+    cmd = '/usr/bin/rm -f videoFile.avi'
+#    subprocess.call(cmd,shell=True)
+    os.system(cmd)
 
-    # cmd = 'rm frame.png'
-    # subprocess.call(cmd,shell=True)
+    cmd = '/usr/bin/rm -f image.jpg'
+#    subprocess.call(cmd,shell=True)
+    os.system(cmd)
 
-    # cmd = 'rm '+filename
-    # subprocess.call(cmd,shell=True)
+    cmd = '/usr/bin/rm -f '+filename+''
+#    subprocess.call(cmd,shell=True)
+    os.system(cmd)
+
     # pygame.quit()
-main('audio.wav')
+#main('PinkPanther30.wav')
