@@ -10,35 +10,19 @@ import SavedVideo from './SavedVideo'
 
 function Home({logout,user}) {
 
-    const [upfile,setUpfile]=useState('Upload music to see something cool');
+    const [upfile,setUpfile]=useState('Upload music to see something cool (.mp3, .wav files accepted)');
     const [uploaded,setUploaded]=useState(false)
     const [song,setSong]=useState(null)
     const [file, setFile] = useState(null)
     const [modalOpen,setModalOpen]=useState(false);
     const [videoFiles, setVideoFiles]=useState([])
 
-    const[items,setItems]=useState(
-        [
-            {
-                id:1,
-                name:"Rasputin"
-            },
-            {
-                id:2,
-                name:"Big bang"
-            },
-            {
-                id:3,
-                name:"Inspection"
-            }
-    ]
-    )
 
     useEffect(() => {
         
-        var itemsRef=db.ref('users/'+user.localId)
+        var itemsRef=db.ref('users/'+user?.localId)
         console.log(user)
-        console.log('users/'+user.localId)
+        console.log('users/'+user?.localId)
         
         itemsRef.on('value',(snapshot)=>{
           var items=snapshot.val()
@@ -57,6 +41,10 @@ function Home({logout,user}) {
         })
 
     }, [])
+
+    
+    
+    
 
     const fileUpload = (e)=>{
         const song=e.target.files[0]
@@ -84,7 +72,7 @@ function Home({logout,user}) {
                 <img src={bg1} alt="" style={{position:'absolute',right:'2%',bottom:'40%',zIndex:-1}}/>
                 <img src={bg2} alt="" style={{position:'absolute',left:'-12%',bottom:'-20%',zIndex:-1}}/>
             <div className="home-main"> 
-                <h3 className="welcome">Welcome {user.email}</h3>
+                <h3 className="welcome">Welcome {user?.email}</h3>
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'3em',marginBottom:'1em'}}>Add file</h4>
                     <div className="upload-div">
@@ -107,7 +95,7 @@ function Home({logout,user}) {
                             </div>
                             <div>
                                 {
-                                uploaded?<VideoPreview upfile={upfile} file={file} user={user}/>:""}
+                                uploaded?<VideoPreview upfile={upfile} videoFiles={videoFiles} file={file} user={user}/>:""}
                                 {/*<Button variant="contained" component="span" style={{
                                 backgroundColor:'#6C63FF',
                                 color:'white',marginLeft:'20px'
@@ -120,14 +108,15 @@ function Home({logout,user}) {
                 
                 <div style={{margin:'0 auto 0 auto',width:'95%'}}>
                     <h4 style={{marginTop:'2em',marginBottom:'1em'}}>Saved videos</h4>
-                    {items.length===0?
+                    {videoFiles.length===0?
                     <div className="upload-div" style={{minHeight:'20vh'}}>
                     <p style={{margin:'auto'}}>No saved videos yet</p>
+                    
                     </div>:  
                     <div>
-                        {items.map(item=>{
+                        {videoFiles.map(item=>{
                             return(
-                                <SavedVideo key={item.id} item={item} items={items} setItems={setItems}></SavedVideo>
+                                <SavedVideo key={item.id} user={user} item={item} videoFiles={videoFiles} setVideoFiles={setVideoFiles}></SavedVideo>
                             )
                         })}
                     </div>

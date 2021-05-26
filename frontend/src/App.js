@@ -2,7 +2,6 @@ import './App.css';
 import Login from './Login'
 import Home from './Home'
 import Header from './Header'
-import Videopreview from './Videopreview'
 import firebase, { auth, provider } from './firebase_config';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
@@ -10,6 +9,7 @@ import axios from 'axios'
 function App() {
 
   const [user, setUser] = useState(null)
+  const [loginerror,setLoginError]=useState("");
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -35,8 +35,11 @@ function App() {
     .then(response => {
       console.log(response)
       setUser(response.data)
+      setLoginError(response.data?.error?"Login Failed! Try Again":"")
     })
-    .catch(errors => console.log(errors))
+    .catch(errors => {
+      console.log(errors)
+      setLoginError("Login Failed! Try Again")})
 
     // auth.signInWithEmailAndPassword(email, password)
     // .then((userCredential) => {
@@ -63,7 +66,7 @@ function App() {
   return (
     <div className="App">
       <Header logout={logout} user={user}/>
-      {user?.email?<Home logout={logout} user={user}/>:<Login loginFunc={loginFunc} setUser={setUser}/>}
+      {user?.email?<Home logout={logout} user={user}/>:<Login loginFunc={loginFunc} loginerror={loginerror} setUser={setUser}/>}
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import {Button,TextField} from '@material-ui/core'
-import firebase, { auth, provider } from './firebase_config';
+import {Button} from '@material-ui/core'
 import axios from 'axios' 
 
 function SignupForm({setUser}) {
@@ -9,6 +8,7 @@ function SignupForm({setUser}) {
   const [password, setPass] = useState('')
   const [repass, setRepass] = useState('')
   const [passMatch, setPassMatch] = useState(false)
+  const[signUpError,setSignUpError]=useState("")
 
   // const signUp=()=>{
   //   auth.createUserWithEmailAndPassword(email, password)
@@ -25,13 +25,14 @@ function SignupForm({setUser}) {
   //   });
   // }
   const signUp=()=>{
+    
     const formData = new FormData();
 
     formData.append("email", email);
     formData.append("password", password)
     axios({
       method: 'post',
-      url: 'https://tranceviz.cloudns.asia/signUp',
+      url: 'http://ec2-18-117-66-244.us-east-2.compute.amazonaws.com/signUp',
       data: formData,
       config: { headers: { 'Content-Type': 'multipart/form-data' } }
     })
@@ -39,7 +40,9 @@ function SignupForm({setUser}) {
       console.log(response)
       setUser(response.data)
     })
-    .catch(errors => console.log(errors))
+    .catch(errors => {
+      console.log(errors)
+      setSignUpError("Sign Up Failed! Try Again")})
   }
 
   const passwordMatch=(e)=>{
@@ -53,7 +56,7 @@ function SignupForm({setUser}) {
 
   return (
       <div>
-      <form noValidate autoComplete="off" className="form">
+      <form noValidate autoComplete="off" className="form" style={{marginTop:'2em'}}>
       <p style={{color:'white',fontWeight:'bolder',fontSize:'18px',marginBottom:'20px'}}>Create an account!</p>
       
   
@@ -85,14 +88,16 @@ function SignupForm({setUser}) {
         }}
         onClick={(e)=>{
           e.preventDefault();
-          passMatch?signUp():console.log("Password mismatch")
+          passMatch?signUp():setSignUpError("Password mismatch")
         }}
       >
       Sign Up
       </Button>
+      <p style={{color:'red', marginTop:'2em'}}>{signUpError}</p>
       <br/>
     
     </form>
+    
       </div>
   )
 }
