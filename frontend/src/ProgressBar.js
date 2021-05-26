@@ -42,8 +42,8 @@ export default function ProgressBar({progress,setProgress}) {
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 1));
-    }, 100);
+      setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 10));
+    }, 800);
     return () => {
       clearInterval(timer);
     };
@@ -52,7 +52,6 @@ export default function ProgressBar({progress,setProgress}) {
   return (
     <div className={classes.root}>
       <LinearProgressWithLabel value={progress} setProgress={setProgress} style={{width:matches?'200px':'500px'}}/>
-      
     </div>
   );
 }
